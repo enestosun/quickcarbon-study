@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style></style>
+
+    <title>Api Dökümantasyonu</title>
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="text-center mb-5">API Dökümantasyonu</h1>
+
+      <!-- Kullanıcı Listeleme -->
+      <h2>Kullanıcıları Listeleme</h2>
+      <p>
+        “GET /users”: Bu uç nokta, tüm kullanıcıları listeler. İstek gövdesi boş
+        olmalıdır. Başarılı bir istek durumunda, sunucu “200 OK” yanıt kodunu
+        döndürür ve bir JSON nesnesi listesi içeren bir yanıt gövdesi döndürür.
+        Her JSON nesnesi, bir kullanıcının tüm özelliklerini içermelidir.
+      </p>
+      <pre class="bg-light p-3 rounded">GET /users</pre>
+      <p>Örnek yanıt:</p>
+      <pre class="bg-light p-3 rounded">
+[
+  {
+    "id": 1,
+    "username": "jane.doe",
+    "email": "jane.doe@example.com",
+    "full_name": "Jane Doe",
+    "phone": "555-555-5555",
+    "role": "user"
+  },
+  {
+    "id": 2,
+    "username": "john.doe",
+    "email": "john.doe@example.com",
+    "full_name": "John Doe",
+    "phone": "555-555-5555",
+    "role": "admin"
+  }
+]</pre
+      >
+      <hr />
+
+      <!-- Kullanıcı Detayları -->
+      <h2>Kullanıcı Detayları</h2>
+      <p>
+        “GET /users/:id”: Bu uç nokta, belirtilen kullanıcının bilgilerini
+        getirir. İstek gövdesi boş olmalıdır. Başarılı bir istek durumunda,
+        sunucu “200 OK” yanıt kodunu döndürür ve bir JSON nesnesi içeren bir
+        yanıt gövdesi döndürür. JSON nesnesi, belirtilen kullanıcının tüm
+        özelliklerini içermelidir. Eğer belirtilen kimliğe sahip bir kullanıcı
+        bulunamazsa, sunucu “404 Not Found” yanıt kodunu döndürür.
+      </p>
+      <pre>GET /users/:id</pre>
+      <p>Örnek istek:</p>
+      <pre class="bg-light p-3 rounded">GET /users/1</pre>
+      <p>Örnek yanıt:</p>
+      <pre class="bg-light p-3 rounded">
+{
+  "id": 1,
+  "username": "jane.doe",
+  "email": "jane.doe@example.com",
+  "full_name": "Jane Doe",
+  "phone": "555-555-5555",
+  "role": "user"
+}</pre
+      >
+      <hr />
+
+      <!-- Kullanıcı Oluşturma -->
+      <h2>Kullanıcı Oluşturma</h2>
+      <p>
+        “POST /users”: Bu uç nokta, yeni bir kullanıcı oluşturur. İstek gövdesi,
+        oluşturulacak kullanıcının özelliklerini içeren bir JSON nesnesi
+        olmalıdır. Başarılı bir istek durumunda, sunucu “201 Created” yanıt
+        kodunu döndürür ve oluşturulan kullanıcının tüm özelliklerini içeren bir
+        JSON nesnesi içeren bir yanıt gövdesi döndürür.
+      </p>
+      <pre>POST /users</pre>
+      <p>Örnek istek:</p>
+      <pre class="bg-light p-3 rounded">
+{
+  "username": "jane.doe",
+  "email": "jane.doe@example.com",
+  "full_name": "Jane Doe",
+  "password": "password",
+  "phone": "555-555-5555",
+  "role": "user"
+}</pre
+      >
+      <p>Örnek yanıt:</p>
+      <pre class="bg-light p-3 rounded">
+{
+  "id": 1,
+  "username": "jane.doe",
+  "email": "jane.doe@example.com",
+  "full_name: "Jane Doe",
+  "phone": "555-555-5555",
+  "role": "user"
+  }</pre
+      >
+      <hr />
+      <!-- Kullanıcı Güncelleme -->
+      <h2>Kullanıcı Güncelleme</h2>
+      <p>
+        PUT /users/:id Bu uç nokta, belirtilen kullanıcının özelliklerini
+        günceller. İstek gövdesi, güncellenen kullanıcının tüm özelliklerini
+        içeren bir JSON nesnesi olmalıdır. Başarılı bir istek durumunda, sunucu
+        "200 OK" yanıt kodunu döndürür ve güncellenen kullanıcının özelliklerini
+        içeren bir JSON nesnesi içeren bir yanıt gövdesi döndürür. Eğer
+        belirtilen kimliğe sahip bir kullanıcı bulunamazsa, sunucu "404 Not
+        Found" yanıt kodunu döndürür.
+      </p>
+      <pre>PUT /users/:id</pre>
+      <p>Örnek istek:</p>
+      <pre class="bg-light p-3 rounded">
+{
+        "email": "jane.doe.new@example.com",
+        "phone": "555-555-1234"
+        }</pre
+      >
+      <p>Örnek yanıt:</p>
+      <pre class="bg-light p-3 rounded">
+{
+        "id": 1,
+        "username": "jane.doe",
+        "email": "jane.doe.new@example.com",
+        "full_name": "Jane Doe",
+        "phone": "555-555-1234",
+        "role": "user"
+        }</pre
+      >
+      <hr />
+      <!-- Kullanıcı Silme -->
+      <h2>Kullanıcı Silme</h2>
+      <p>
+        “DELETE /users/:id”: Bu uç nokta, belirtilen kimliğe sahip olan mevcut
+        bir kullanıcıyı siler. Başarılı bir istek durumunda, sunucu “204 No
+        Content” yanıt kodunu döndürür ve herhangi bir yanıt gövdesi döndürmez.
+        Eğer belirtilen kimliğe sahip bir kullanıcı bulunamazsa, sunucu “404 Not
+        Found” yanıt kodunu döndürür.
+      </p>
+      <pre>DELETE /users/:id</pre>
+      <p>Örnek istek:</p>
+      <pre class="bg-light p-3 rounded">DELETE /users/1</pre>
+      <p>Örnek yanıt:</p>
+      <pre class="bg-light p-3 rounded">{}</pre>
+
+      <br /><br />
+      <div>
+        <ul>
+          <li>
+            200 OK: İstek başarılı bir şekilde tamamlandı ve istenilen kaynaklar
+            gönderildi.
+          </li>
+          <li>
+            201 Created: İstek başarılı bir şekilde tamamlandı ve yeni bir
+            kaynak oluşturuldu.
+          </li>
+          <li>
+            204 No Content: İstek başarılı bir şekilde tamamlandı, ancak
+            gönderilecek içerik yok.
+          </li>
+          <li>400 Bad Request: İstek hatalı veya eksik bilgi içeriyor.</li>
+          <li>
+            401 Unauthorized: Kimlik doğrulama başarısız oldu veya kullanıcının
+            yetkisi yok.
+          </li>
+          <li>
+            403 Forbidden: İstek reddedildi, çünkü kullanıcının gerekli izinleri
+            yok.
+          </li>
+          <li>404 Not Found: İstek yapılan kaynak bulunamadı.</li>
+          <li>
+            500 Internal Server Error: Sunucu hatası nedeniyle istek
+            tamamlanamadı.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
