@@ -37,7 +37,9 @@
 
 
 
-Users tablosunda bir id sütunu, bir username sütunu ve Roles tablosundaki id sütununa başvuran bir yabancı anahtar role_id bulunur. Roles tablosunda bir id sütunu ve rolün adını saklayan bir name sütunu bulunur. Capabilites tablosunda bir id sütunu ve yeteneğin adını saklayan bir name sütunu bulunur. Son olarak, RoleCapabilities tablosu, roller ve yetenekler arasındaki çoktan çoğa ilişkiyi depolayan bir bağlantı tablosudur.
+Users tablosunda bir id sütunu, bir username sütunu ve Roles tablosundaki id sütununa başvuran bir yabancı anahtar role_id bulunur. 
+Roles tablosunda bir id sütunu ve rolün adını saklayan bir name sütunu bulunur. Capabilites tablosunda bir id sütunu ve yeteneğin adını saklayan bir name sütunu bulunur. 
+Son olarak, RoleCapabilities tablosu, roller ve yetenekler arasındaki çoktan çoğa ilişkiyi depolayan bir bağlantı tablosudur.
 
 1-Users
   * user_id (primary key)
